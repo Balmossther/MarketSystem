@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50505
 File Encoding         : 65001
 
-Date: 2016-12-10 12:43:42
+Date: 2016-12-10 14:21:14
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -50,13 +50,14 @@ CREATE TABLE `clientes` (
   `cliente_fecha_registro` datetime NOT NULL,
   `cliente_fecha_nacimiento` date NOT NULL,
   PRIMARY KEY (`cliente_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of clientes
 -- ----------------------------
 INSERT INTO `clientes` VALUES ('1', 'Liam', 'Martinez', 'hola@gmail.com', '123', 'EL SALVADOR', 'SAN FRANCISCO GOTERA', 'BO. SAN RAFAEL, 4A. CALLE ORIENTE N20', '1212-1212', '2016-08-13 00:00:00', '2000-01-30');
 INSERT INTO `clientes` VALUES ('2', 'LYAM', 'AMAYA', 'a@hotmail.com', '4545', 'EL SALVADOR', 'SAN SALVADOR', 'OSICALA', '75787578', '2016-10-22 00:00:00', '0000-00-00');
+INSERT INTO `clientes` VALUES ('4', 'Roberto', 'Mendez', 'hola1@hotmail.com', '1515', 'EL SALVADOR', 'SAN MIGUEL', 'San Miguel, ', '75757887', '2016-12-10 13:22:35', '2012-01-01');
 
 -- ----------------------------
 -- Table structure for `lista_compras`
@@ -68,12 +69,12 @@ CREATE TABLE `lista_compras` (
   `cliente_id` int(11) DEFAULT NULL,
   `lista_compra_cantidad` int(11) DEFAULT NULL,
   PRIMARY KEY (`lista_compra_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 
 -- ----------------------------
 -- Records of lista_compras
 -- ----------------------------
-INSERT INTO `lista_compras` VALUES ('3', '4', '1', '1');
+INSERT INTO `lista_compras` VALUES ('5', '7', '1', '2');
 
 -- ----------------------------
 -- Table structure for `marca`
@@ -129,20 +130,18 @@ CREATE TABLE `productos` (
   `producto_precio` decimal(6,2) NOT NULL,
   `producto_cantidad` int(11) NOT NULL,
   `producto_fecha_registro` datetime NOT NULL,
-  `product_url_img` varchar(200) DEFAULT NULL,
+  `producto_url_imagen` varchar(200) DEFAULT NULL,
   PRIMARY KEY (`producto_id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of productos
 -- ----------------------------
-INSERT INTO `productos` VALUES ('2', '3', '0', '1', '2', 'USB 10 gb', 'Color Verde', '5.50', '150', '2016-08-01 00:00:00', null);
-INSERT INTO `productos` VALUES ('3', '2', '0', '1', '1', 'Mouse Optico', 'Laser ', '20.00', '450', '2016-08-01 00:00:00', null);
-INSERT INTO `productos` VALUES ('4', '3', '0', '4', '2', 'MousePad 16x20', 'Estampado Rocket', '10.00', '118', '2016-08-01 00:00:00', null);
-INSERT INTO `productos` VALUES ('5', '3', '0', '4', '2', 'Carcasa de Enclouser', 'Color Verde - Negro', '5.00', '50', '2016-08-01 00:00:00', null);
-INSERT INTO `productos` VALUES ('6', '2', '0', '1', '4', 'NuevLaptop', 'ninguna', '15.50', '500', '2016-10-22 00:00:00', null);
-INSERT INTO `productos` VALUES ('7', '1', '0', '1', '1', 'ii', 'rttt', '34.00', '545', '2016-10-22 00:00:00', null);
-INSERT INTO `productos` VALUES ('8', '3', '0', '1', '3', 'ffff', 'ssss', '2.00', '2', '2016-10-22 00:00:00', null);
+INSERT INTO `productos` VALUES ('2', '3', '0', '1', '2', 'USB 10 gb', 'Color Verde', '5.50', '250', '2016-08-01 00:00:00', 'https://pedidos.com/myfotos/xLarge/(X)ME-KIN-8GGREEN.jpg');
+INSERT INTO `productos` VALUES ('3', '2', '0', '1', '1', 'Mouse Optico', 'Laser ', '20.00', '450', '2016-08-01 00:00:00', 'https://images.pcel.com/300/e47swAbsGXsnhpZ8.jpg');
+INSERT INTO `productos` VALUES ('4', '3', '0', '4', '2', 'MousePad 16x20', 'Estampado Rocket', '10.00', '118', '2016-08-01 00:00:00', 'http://bpc.h-cdn.co/assets/16/11/480x480/gallery-1458229603-steel-series-dex-gaming-mouse-pad.jpg');
+INSERT INTO `productos` VALUES ('5', '3', '0', '4', '2', 'Carcasa de Enclouser', 'Color Verde - Negro', '5.00', '50', '2016-08-01 00:00:00', 'http://voragolive.com/images/productos/accesorios/HDD-102/carcasa-para-disco-duro-vorago-HDD-102-titulo.png');
+INSERT INTO `productos` VALUES ('7', '1', '0', '1', '1', 'Laptop', 'N/D', '34.00', '545', '2016-10-22 00:00:00', 'http://ssl-product-images.www8-hp.com/digmedialib/prodimg/lowres/c05059975.png');
 
 -- ----------------------------
 -- Table structure for `promociones`
@@ -214,7 +213,7 @@ CREATE TABLE `ventas_detalle` (
   `venta_d_precio` decimal(4,2) NOT NULL,
   `venta_d_fecha` datetime NOT NULL,
   PRIMARY KEY (`venta_d_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of ventas_detalle
@@ -228,6 +227,8 @@ INSERT INTO `ventas_detalle` VALUES ('6', '4', '4', '3', '10.00', '2016-12-09 21
 INSERT INTO `ventas_detalle` VALUES ('7', '5', '4', '3', '10.00', '2016-12-09 22:02:10');
 INSERT INTO `ventas_detalle` VALUES ('8', '6', '4', '3', '10.00', '2016-12-09 22:41:37');
 INSERT INTO `ventas_detalle` VALUES ('9', '7', '4', '1', '10.00', '2016-12-09 22:44:05');
+INSERT INTO `ventas_detalle` VALUES ('10', '8', '4', '1', '10.00', '2016-12-10 13:40:41');
+INSERT INTO `ventas_detalle` VALUES ('11', '9', '7', '1', '34.00', '2016-12-10 14:06:08');
 
 -- ----------------------------
 -- Table structure for `ventas_general`
@@ -241,7 +242,7 @@ CREATE TABLE `ventas_general` (
   `venta_fecha` datetime NOT NULL,
   `venta_estado` varchar(10) DEFAULT NULL,
   PRIMARY KEY (`venta_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of ventas_general
@@ -253,3 +254,5 @@ INSERT INTO `ventas_general` VALUES ('4', '1', '0', '0.00', '2016-12-09 21:59:45
 INSERT INTO `ventas_general` VALUES ('5', '1', '3', '30.00', '2016-12-09 22:02:10', 'APROBADO');
 INSERT INTO `ventas_general` VALUES ('6', '1', '3', '30.00', '2016-12-09 22:41:37', 'APROBADO');
 INSERT INTO `ventas_general` VALUES ('7', '1', '1', '10.00', '2016-12-09 22:44:05', 'APROBADO');
+INSERT INTO `ventas_general` VALUES ('8', '1', '1', '10.00', '2016-12-10 13:40:41', 'PENDIENTE');
+INSERT INTO `ventas_general` VALUES ('9', '1', '1', '34.00', '2016-12-10 14:06:08', 'PENDIENTE');
